@@ -338,7 +338,7 @@ func (i *interface_) interfacesURI() string {
 	return strings.Replace(i.resourceURI, "/"+strconv.Itoa(i.ID())+"/", "/", 1)
 }
 
-// CreateInterface implements Device.
+// CreateVLANInterface
 func (i *interface_) CreateVLANInterface(args CreateVLANInterfaceArgs) (Interface, error) {
 	if err := args.Validate(); err != nil {
 		return nil, errors.Trace(err)
@@ -371,8 +371,6 @@ func (i *interface_) CreateVLANInterface(args CreateVLANInterfaceArgs) (Interfac
 	}
 	iface.controller = i.controller
 
-	// TODO: add to the interfaces for the device when the interfaces are returned.
-	// lp:bug 1567213.
 	return iface, nil
 }
 

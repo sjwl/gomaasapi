@@ -223,6 +223,9 @@ type Machine interface {
 	// specified. If there is no match, nil is returned.
 	Interface(id int) Interface
 
+	// CreateBondInterface will create a bond interface
+	CreateBondInterface(CreateBondInterfaceArgs) (Interface, error)
+
 	// PhysicalBlockDevices returns all the physical block devices on the machine.
 	PhysicalBlockDevices() []BlockDevice
 	// PhysicalBlockDevice returns the physical block device for the machine
