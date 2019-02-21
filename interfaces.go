@@ -331,6 +331,9 @@ type Interface interface {
 	// address associated if there is one.
 	UnlinkSubnet(Subnet) error
 
+	// Disconnect deletes any linked subnets and IP addresses, and disconnects the interface from any associated VLAN
+	Disconnect() error
+
 	// CreateVLANInterface will create a logical interface
 	CreateVLANInterface(CreateVLANInterfaceArgs) (Interface, error)
 }
